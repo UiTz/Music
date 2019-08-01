@@ -10,6 +10,7 @@ import "element-ui/lib/theme-chalk/index.css";
 Vue.use(ElementUI);
 Vue.use(VueAxios, axios);
 axios.defaults.baseURL = 'http://127.0.0.1:3000';
+// axios.defaults.baseURL = 'http://127.0.0.1:3000';
 Vue.config.productionTip = false;
 
 new Vue({
