@@ -41,11 +41,10 @@
           this.btnIsLoading = true;
           let req = {
             params: {
-              name: v
+              keywords: v
             }
           };
-          let url = 'https://api.apiopen.top/searchMusic';
-          this.axios.get(url, req).then(result => {
+          this.axios.get('/search', req).then(result => {
             //eslint-disable-next-line no-empty
             if (result.status === 200) {
               //eslint-disable-next-line no-console
