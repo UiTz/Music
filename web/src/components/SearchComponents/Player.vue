@@ -1,19 +1,17 @@
 <template>
   <div id="container">
-    <aplayer autoplay
-             class="player"
-             :music="musicdetails"
-             disabled="true"
-    />
+    <audio controls autoplay class="player">
+      <source :src="musicdetails.src" type="audio/mpeg">
+    </audio>
   </div>
 </template>
 
 <script>
-  import Aplayer from 'vue-aplayer'
+  //import Aplayer from 'vue-aplayer'
   export default {
     name: "Player",
     components: {
-      Aplayer,
+      //Aplayer,
     },
     data() {
       return {
@@ -27,7 +25,7 @@
     },
     computed: {
       musicdetails() {
-        let m = this.$store.state.playMp3;
+        let m = this.$store.getters.getPlayMp3;
         console.log(m);
         return m;
       }

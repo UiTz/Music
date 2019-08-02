@@ -18,13 +18,13 @@
               width="50">
       </el-table-column>
       <el-table-column
-              prop="title"
+              prop="name"
               label="音乐标题"
               width="300">
         <!--<template slot-scope="scope">{{ scope.row.date }}</template>-->
       </el-table-column>
       <el-table-column
-              prop="author"
+              prop="artists[0].name"
               label="歌手"
               width="240">
       </el-table-column>
@@ -59,8 +59,17 @@
     },
     methods: {
       play(m) {
-        console.log(m);
-        this.$store.commit('setPlayMp3', m);
+        console.log(2222);
+        let params = {
+          id: m.id
+        };
+        this.axios.get('/song/url',{params})
+        .then(res => {
+          let url = res.data.data[0].url;
+          this.$store.commit('setPlayMp3Url', url);
+          this.$store.commit('setPlayMp3', m);
+          //this.$emit('getdata', true);
+        })
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;

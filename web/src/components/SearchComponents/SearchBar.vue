@@ -48,8 +48,8 @@
             //eslint-disable-next-line no-empty
             if (result.status === 200) {
               //eslint-disable-next-line no-console
-              //console.log(result.data.result);
-              this.$store.commit('setSearchResult',result.data.result);
+              console.log(result.data.result.songs);
+              this.$store.commit('setSearchResult',result.data.result.songs);
               this.btnIsLoading = false;
             } else {
               this.$message({

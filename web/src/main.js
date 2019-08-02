@@ -9,11 +9,12 @@ import "element-ui/lib/theme-chalk/index.css";
 
 Vue.use(ElementUI);
 Vue.use(VueAxios, axios);
-axios.defaults.baseURL = 'http://127.0.0.1:3000';
+axios.defaults.baseURL = 'http://139.224.116.134:3000';
 // axios.defaults.baseURL = 'http://127.0.0.1:3000';
 Vue.config.productionTip = false;
 
-new Vue({
+//eslint-disable-next-line no-unused-vars
+const vm = new Vue({
   router,
   store,
   render: h => h(App)
