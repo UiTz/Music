@@ -1,0 +1,12 @@
+{
+  "apps": [{
+    "name": "网易云API",
+    "script": "node app.js",
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+    }
+  }]
+}
