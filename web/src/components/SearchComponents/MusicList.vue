@@ -59,12 +59,13 @@
     },
     methods: {
       play(m) {
-        console.log(2222);
         let params = {
           id: m.id
         };
         this.axios.get('/song/url',{params})
         .then(res => {
+          // eslint-disable-next-line no-console,no-mixed-spaces-and-tabs
+        	console.log(res);
           let url = res.data.data[0].url;
           this.$store.commit('setPlayMp3Url', url);
           this.$store.commit('setPlayMp3', m);

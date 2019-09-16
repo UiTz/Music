@@ -15,14 +15,14 @@ export default new Vuex.Store({
   },
   mutations: {
     setPlayMp3Url: (state, url) => {
-      console.log('state数据修改');
+      // console.log('state数据修改');
       let m = state.playMp3;
       Vue.set(m, 'src', url);
-      console.log(state.src);
+      // console.log(state.src);
       //state.playMp3.src = url;
     },
     setPlayMp3: (state, mp3) => {
-      console.log('state数据修改');
+      // console.log('state数据修改');
       let m = state.playMp3;
       Vue.set(m, 'title', mp3.name);
       Vue.set(m, 'artist', mp3.artists[0].name);
@@ -39,7 +39,7 @@ export default new Vuex.Store({
       return state.searchResult;
     },
     getPlayMp3: state=> {
-      console.log('获取state数据');
+      // console.log('获取state数据');
       return state.playMp3;
     }
   },
