@@ -4,12 +4,15 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import VueAxios from "vue-axios";
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 import ElementUI from 'element-ui';
 import "element-ui/lib/theme-chalk/index.css";
 
 Vue.use(ElementUI);
+Vue.use(MintUI);
 Vue.use(VueAxios, axios);
-axios.defaults.baseURL = 'http://139.224.116.134:3000';
+axios.defaults.baseURL = 'http://liujiaxin.co:3000';
 // axios.defaults.baseURL = 'http://127.0.0.1:3000';
 Vue.config.productionTip = false;
 
