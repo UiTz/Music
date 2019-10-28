@@ -1,5 +1,5 @@
 <template>
-	<mt-tab-container v-model="selected" swipeable>
+	<mt-tab-container v-model="selected">
 		<mt-tab-container-item id="发现音乐">
 			<find></find>
 		</mt-tab-container-item>
@@ -16,10 +16,10 @@
 </template>
 
 <script>
-	import Find from "./Find/Find";
-	import MyMusic from "./MyMusic/MyMusic";
-	import Friend from "./Friend/Friend";
-	import Account from "./Account/Account";
+	import Find from "../../views/Find/Find";
+	import MyMusic from "../../views/MyMusic/MyMusic";
+	import Friend from "../../views/Friend/Friend";
+	import Account from "../../views/Account/Account";
 
 	export default {
 		components: { Account, Friend, MyMusic, Find },
@@ -48,5 +48,7 @@
 </script>
 
 <style scoped>
-
+	.mint-tab-container {
+		font-size: 24px;
+	}
 </style>

@@ -5,23 +5,30 @@
 	<!--  <player></player>-->
 	<!--</div>-->
 	<div class="container">
-		<header></header>
+		<!--<nav-bar :data="headerData" @left-click="leftClick"></nav-bar>-->
 		<tab-container @getActive="getActive" :active="active"></tab-container>
-		<tabbar @getActive="getActive" :active="active"></tabbar>
+		<tab-bar @getActive="getActive" :active="active"></tab-bar>
 	</div>
 </template>
 
 <script>
-	import Tabbar from "../components/Tabbar/Tabbar";
-	import TabContainer from "../components/TabContainer/TabContainer";
-	// import Header from "../components/Header/Header";
+	import TabBar from "../../components/TabBar/TabBar";
+	import TabContainer from "../../components/TabContainer/TabContainer";
+	// import NavBar from "../../components/NavBar/NavBar";
 
 	export default {
 		name: "Index",
 		data () {
 			return {
 				isPlay: false,
-				active: '发现音乐'
+				active: '发现音乐',
+				headerData: {
+					title: 'C-BlOCK',
+					midContent: '',
+					leftIcon: require('../../assets/img/mic.png'),
+					mediumIcon: require('../../assets/img/zoom.png'),
+					rightIcon: require('../../assets/img/playing.png')
+				}
 			}
 		},
 		methods: {
@@ -32,15 +39,16 @@
 			getActive (data) {
 				this.active = data;
 			},
+
 			// 获取tabbar数据
 			// getSeleted(data) {
 			//   this.active = data;
 			// }
 		},
 		components: {
-			// Header,
+			// NavBar,
 			TabContainer,
-			Tabbar,
+			TabBar,
 		},
 	}
 </script>

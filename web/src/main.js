@@ -8,6 +8,8 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import ElementUI from 'element-ui';
 import "element-ui/lib/theme-chalk/index.css";
+import "./assets/style/font.css"
+import 'lib-flexible/flexible.js'
 
 Vue.use(ElementUI);
 Vue.use(MintUI);
@@ -18,7 +20,7 @@ Vue.config.productionTip = false;
 
 //eslint-disable-next-line no-unused-vars
 const vm = new Vue({
-  router,
-  store,
-  render: h => h(App)
+	router,
+	store,
+	render: h => h(App)
 }).$mount('#app');

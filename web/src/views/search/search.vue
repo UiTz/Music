@@ -1,15 +1,12 @@
 <template>
 	<div>
-		我的音乐组件
+		<tab-bar @getActive="getActive" :active="active"></tab-bar>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: "MyMusic",
-		data () {
-			return {}
-		},
+		name: "search"
 	}
 </script>
 
