@@ -1,15 +1,17 @@
 <template>
 	<mt-tab-container v-model="selected">
-		<mt-tab-container-item id="发现音乐">
-			<find></find>
+		<mt-tab-container-item id="find">
+			<find @switchSearch="switchSearch"></find>
+			<search class="search" v-if="isSearch" :defaultSearchKeyWords="searchKeyWords"
+			        @switchSearch="switchSearch"></search>
 		</mt-tab-container-item>
-		<mt-tab-container-item id="我的音乐">
+		<mt-tab-container-item id="myMusic">
 			<my-music></my-music>
 		</mt-tab-container-item>
-		<mt-tab-container-item id="朋友">
+		<mt-tab-container-item id="friend">
 			<friend></friend>
 		</mt-tab-container-item>
-		<mt-tab-container-item id="账号">
+		<mt-tab-container-item id="account">
 			<account></account>
 		</mt-tab-container-item>
 	</mt-tab-container>
@@ -20,9 +22,10 @@
 	import MyMusic from "../../views/MyMusic/MyMusic";
 	import Friend from "../../views/Friend/Friend";
 	import Account from "../../views/Account/Account";
+	import Search from "../../views/Search/Search";
 
 	export default {
-		components: { Account, Friend, MyMusic, Find },
+		components: { Search, Account, Friend, MyMusic, Find },
 		props: {
 			active: {
 				type: String,
@@ -32,7 +35,16 @@
 		name: "TabContainer",
 		data () {
 			return {
-				selected: this.active
+				selected: this.active,
+				isSearch: false,
+				searchKeyWords: ''
+			}
+		},
+		methods: {
+			// 切换搜索状态
+			switchSearch (keyWords) {
+				this.isSearch = !this.isSearch;
+				if (keyWords) this.searchKeyWords = keyWords;
 			}
 		},
 		watch: {
@@ -47,7 +59,7 @@
 	}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 	.mint-tab-container {
 		font-size: 24px;
 	}

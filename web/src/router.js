@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from "./views/index/Index";
-import search from "./views/search/search";
+import Index from "./views/Index/Index";
+import Search from "./views/Search/Search";
 
 Vue.use(Router);
 
@@ -10,18 +10,19 @@ export default new Router({
 		{
 			path: '/',
 			name: 'rootIndex',
-			redirect: '/index',
+			redirect: '/Index',
 		},
 		{
-			path: '/index',
+			path: '/Index',
 			name: 'index',
 			component: Index,
 		},
 		{
-			path: '/search',
+			path: '/Search',
 			name: 'search',
-			component: search
+			component: Search
 		},
+
 		//{
 		//  path: '/about',
 		//  name: 'about',

@@ -1,14 +1,14 @@
 @font-face {
     font-family: "mintui";
-    src: url('//at.alicdn.com/t/font_1477839_aok0tulls3q.eot?t=1572072133693'); /* IE9 */
-    src: url('//at.alicdn.com/t/font_1477839_aok0tulls3q.eot?t=1572072133693#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAKAAAsAAAAABigAAAI2AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcApEVQE2AiQDCAsGAAQgBYRVBzgbawXIHpIkRfTKhAgAAAAA8fD98t25b29aqTpfJzqhq9ptVWtRYBzjEapKxsP40hV6L9dy/78EwtCqqn92RVZoDze5XOgmtwWSvs6yMq0TZp/ncnoT6ID/83NuzoEJbwx4D4wiDCT0hrELXuBzAt3mtTWOji9vYEqy1wXioZIJTBUCUrJ0p9DecDRH4pU2neVFCbyMvh+/DKOToq1iV526fZTD7teWk1XVTe1iQAgS0Ok2VNgFkjjXmDjWEoxr6T4/ZhlIKfjaahpsEkfVC/bX2aW9YBYKnknoiR61tICEqUFgDLMpT7tVT1v3nanZrmfR2vrxycP6h8fmzoGUzP8zwcG10VK0uPm/syfB5y89H9GKpk5Vjc7VncFv6Mg10DSJi+14SXQIkKsY3F28oNtwa9ieYX9TNWPnzIR2Y2d2dZjJUGm3TCa7iTY99mXtjqoF0W3HzukeI0otkV3Y9g4Qer1G0e8NKr3eksl+Qptxn2jX6x+6XfB/ZY/1OD1zEChhyjF9RpV5J9xjPGOV43t1RfLeJEETBsvuKNTKOxx0+6X0CTkKU3fUD3LILFAEb/F4ltfIGI9V8CVl3C2Yq/VeTzR9qJt5CzMOBSTBSA6lniEl4zkiKGQzHlEJ/55yhchZIxEae4zGOySoqenz0UBXv5M8UbgBfbd+p/ZAGmJMQELgWej4MDZiYMJDVfOiEsmwrmJCrLKu5wwSQxXdS6nsHx2Cbra2hHNPpf95QU6+JCr1InESAA==') format('woff2'),
-    url('//at.alicdn.com/t/font_1477839_aok0tulls3q.woff?t=1572072133693') format('woff'),
-    url('//at.alicdn.com/t/font_1477839_aok0tulls3q.ttf?t=1572072133693') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */ url('//at.alicdn.com/t/font_1477839_aok0tulls3q.svg?t=1572072133693#mintui') format('svg'); /* iOS 4.1- */
+    src: url('//at.alicdn.com/t/font_1477839_kyqu7ve99e.eot?t=1572317811256'); /* IE9 */
+    src: url('//at.alicdn.com/t/font_1477839_kyqu7ve99e.eot?t=1572317811256#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAARgAAsAAAAACPgAAAQRAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqFGIRMATYCJAMUCwwABCAFhFUHYBvYBxEVnJfJfiYYNy6PLdQbLVEf5SbSM/nP59mf+5DJvAyUjtGxPwSujB3Y5lM7sgFAkLurfomlEWUYBZRLhCW9mtYV14VFqDR5tvrqU2BDCmQIe18OjqV+lL7AfYVbduALt1jGIn0gAw2QTZS3DK91qQt6HgigREhFo3bDltAJZBcBaPbr0w16zEiUVBId0XIuhk5LIel5HrsGYIn78/SRnXSAkQXkWNPetXqi8m34u458qmsqbARE/dkBsNcADkgFCKCV6xwI7idTcUr+O6ESgKJj2At/W/T25ruOLpciXZFa6f/wAIFwDKiCKD0wtlIhdk5kCkNVEehBoLoJDODwrmMKDHBeFwEF8ATcAqiBaOP6THCMACqPMLt/gmd7K0OqPprhNs69X59799pYVmuHo6XT2YumHViwz4Rh3Wvq3gCFlXvn7ydSq/dPO2B02BUczQuYb7OUqhecus/0rOD3OHYnorX9nBVj82BRq62O0qNDPBxWayvKFxD3apzOlg7HYM8Fon+aZanORCPJUfFxa0+cCtlu1b7iiNrmrGWsMdvs3k98+DjY3tsqgpYY0ZdLDJEbbgeLtXvLqvq69Q2YOLPPTPVqZlAL17GG1Ls3NdR5Nt+Shsca1BvkUyMyx3vQIO+akTWeO4gchA/i4z1zfdqbinnnfFSj6sZ3qLueX7/O1vloyqO17nP09mMvWn3w+YLky9m9PdmAJUsGWDLG8OATeGT3ubwen+Lfd6Qpw7R21G7UhA4aDVyyaoj7ELFjuk//Tj5D5sqOeoeZozMb3LHXSUyp2yylTp0ku29vH2o6eGAL0u8/ZCA11WsHtBqEurJXKxnUsMG2bY0a6Hoj997e3ZphUGTT07bl5hn7NXO57er3yqu280iZQglj8eXmNfuZfMLpb0Wn5Xl52o6XYywAwHWOv+bV7vqV/CEfCAD8smfIfXitn+Z3cGjxkpgu3qXfdEMAAB48uToCgq6VAu3U+s1zEfwiZpFwfSWKhBhkSMqeLzXtILJJi0gYDP6Gnh/D6+dpP2qzdjlANGYIjJtQ4DQxSIFNAsmQLtd0dRGAYldx3eCvPzgKdwApJiEgHvYA4+UwcB4uIgX2Okg2D0Dj4QMorfHnnoaE1EzVMBmWjg1Uf8C1ChmXfDOIxSM/MMShNElkb/qgzawCeZIlMncUtLZH5m8o3AnIdIRbJy/DYVCYTDusPWndp1OaUt4HJbWOiw3OhqVjA9UfcK1CdrFvMLLPHfmBYX4oLbdPyf+gzfirKpAnWSnyrpQaA8c+Pn9D4U5AcrmOcJuNHQecVJjy13VYe9K2iE+nVB9GdZXJqtTjdR0BUCDvlMSIkyBJGg7jW5TwX3KlVErYj2Rb1pnf0Zb6p3E9Lsqx0JEvFgAAAA==') format('woff2'),
+    url('//at.alicdn.com/t/font_1477839_kyqu7ve99e.woff?t=1572317811256') format('woff'),
+    url('//at.alicdn.com/t/font_1477839_kyqu7ve99e.ttf?t=1572317811256') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */ url('//at.alicdn.com/t/font_1477839_kyqu7ve99e.svg?t=1572317811256#mintui') format('svg'); /* iOS 4.1- */
 }
 
 .mintui {
     font-family: "mintui" !important;
-    font-size: 18px;
+    font-size: 24px;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -16,5 +16,17 @@
 
 .mintui-zhengzaibofang:before {
     content: "\e639";
+}
+
+.mintui-tianjiahaoyou:before {
+    content: "\e75c";
+}
+
+.mintui-yun:before {
+    content: "\e6cf";
+}
+
+.mintui-zhengzaibofang1:before {
+    content: "\e61d";
 }
 

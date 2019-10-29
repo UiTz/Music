@@ -1,14 +1,14 @@
 <template>
 	<mt-header title="我的音乐">
 		<router-link to="/" slot="left">
-			<mt-button icon="back">返回</mt-button>
+			<mt-button icon="yun">
+			</mt-button>
 		</router-link>
-		<mt-button icon="more" slot="right"></mt-button>
+		<mt-button icon="zhengzaibofang1" slot="right"></mt-button>
 	</mt-header>
 </template>
 
 <script>
-	// import NavBar from "../../components/NavBar/NavBar";
 
 	export default {
 		name: "MyMusic",
