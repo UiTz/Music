@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { baseURL } from "../config";
 import Axios from "axios";
 
@@ -31,7 +32,7 @@ function doSearch (data) {
  */
 function getSuggest (keywords) {
 	return new Promise(function (resolve, reject) {
-		Axios.get(baseURL + '/search/suggest', { params: { keywords } })
+		Axios.get(baseURL + '/search/suggest', { params: { keywords, type: 'mobile' } })
 		     .then(result => {
 			     resolve(result.data);
 		     })

@@ -2,8 +2,12 @@
 	<mt-tab-container v-model="selected">
 		<mt-tab-container-item id="find">
 			<find @switchSearch="switchSearch"></find>
-			<search class="search" v-if="isSearch" :defaultSearchKeyWords="searchKeyWords"
-			        @switchSearch="switchSearch"></search>
+			<search
+							class="search"
+							v-if="isSearch"
+							:defaultSearchKeyWords="searchKeyWords"
+							@switchSearch="switchSearch">
+			</search>
 		</mt-tab-container-item>
 		<mt-tab-container-item id="myMusic">
 			<my-music></my-music>

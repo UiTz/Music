@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<nav-bar :data="headerData" @touchSearchBar="$emit('switchSearch',headerData.midContent)"></nav-bar>
+		<nav-bar
+						:data="headerData"
+						@touchSearchBar="$emit('switchSearch',headerData.midContent)">
+		</nav-bar>
 	</div>
 </template>
 
