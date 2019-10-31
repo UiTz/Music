@@ -1,11 +1,11 @@
 <template>
-	<div>
+	<div class="historyContainer">
 		<mt-cell
 						v-for="(item,index) in searchHistory"
 						:key="index" :title="item"
 						@click.native="$emit('historySearch', item)"
 						icon="shijian" slot="right">
-			<button class="btn" style="" @click.stop="$emit('delHistory',index)">&#10005;</button>
+			<span class="btn" style="" @click.stop="$emit('delHistory',index)">&#10005;</span>
 		</mt-cell>
 		<mt-button
 						v-if="searchHistory.length !== 0"
@@ -32,6 +32,11 @@
 </script>
 
 <style scoped lang="scss">
+	.historyContainer {
+		padding-top: 41px;
+		padding-bottom: 55px;
+	}
+
 	.btn {
 		font-size: 18px;
 		margin: 10px;

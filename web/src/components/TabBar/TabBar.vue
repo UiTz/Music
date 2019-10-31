@@ -1,26 +1,29 @@
 <template>
-	<mt-tabbar v-model="selected" id="tabbbar">
-		<mt-tab-item id="find">
-			<img alt="发现音乐" slot="icon" src="../../assets/img/home_seleted.png" v-if="selected === 'find'">
-			<img alt="发现音乐" slot="icon" src="../../assets/img/home.png" v-else>
-			<span class="bfont">发现音乐</span>
-		</mt-tab-item>
-		<mt-tab-item id="myMusic">
-			<img alt="发现音乐" slot="icon" src="../../assets/img/myMusic_selected.png" v-if="selected === 'myMusic'">
-			<img alt="发现音乐" slot="icon" src="../../assets/img/myMusic.png" v-else>
-			<span class="bfont">我的音乐</span>
-		</mt-tab-item>
-		<mt-tab-item id="friend">
-			<img alt="发现音乐" slot="icon" src="../../assets/img/friend_selected.png" v-if="selected === 'friend'">
-			<img alt="发现音乐" slot="icon" src="../../assets/img/friend.png" v-else>
-			<span class="bfont">朋友</span>
-		</mt-tab-item>
-		<mt-tab-item id="account">
-			<img alt="账号" slot="icon" src="../../assets/img/me_selected.png" v-if="selected === 'account'">
-			<img alt="账号" slot="icon" src="../../assets/img/me.png" v-else>
-			<span class="bfont">账号</span>
-		</mt-tab-item>
-	</mt-tabbar>
+	<div>
+		<mt-tabbar v-model="selected" id="tabbbar" fixed>
+			<mt-tab-item id="find">
+				<img alt="发现音乐" slot="icon" src="../../assets/img/home_seleted.png" v-if="selected === 'find'">
+				<img alt="发现音乐" slot="icon" src="../../assets/img/home.png" v-else>
+				<span class="bfont">发现音乐</span>
+			</mt-tab-item>
+			<mt-tab-item id="myMusic">
+				<img alt="发现音乐" slot="icon" src="../../assets/img/myMusic_selected.png" v-if="selected === 'myMusic'">
+				<img alt="发现音乐" slot="icon" src="../../assets/img/myMusic.png" v-else>
+				<span class="bfont">我的音乐</span>
+			</mt-tab-item>
+			<mt-tab-item id="friend">
+				<img alt="发现音乐" slot="icon" src="../../assets/img/friend_selected.png" v-if="selected === 'friend'">
+				<img alt="发现音乐" slot="icon" src="../../assets/img/friend.png" v-else>
+				<span class="bfont">朋友</span>
+			</mt-tab-item>
+			<mt-tab-item id="account">
+				<img alt="账号" slot="icon" src="../../assets/img/me_selected.png" v-if="selected === 'account'">
+				<img alt="账号" slot="icon" src="../../assets/img/me.png" v-else>
+				<span class="bfont">账号</span>
+			</mt-tab-item>
+		</mt-tabbar>
+		<div class="bg-blur"></div>
+	</div>
 </template>
 
 <script>
@@ -55,7 +58,8 @@
 	}
 
 	.mint-tabbar {
-		background-color: rgba(20, 20, 20, .86);
+		background-color: rgba(20, 20, 20, .99);
+		/*filter: blur(1px);*/
 		/* 未选中时文字颜色 */
 		color: #999594;
 	}

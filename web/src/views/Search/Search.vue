@@ -7,30 +7,31 @@
 								:placeholder="defaultSearchKeyWords"
 								@input="getSuggest"
 								@keyup.enter="doSearch"
+								@click="TapSearchBar"
 								type="text"
 								v-focus
 								v-model="searchContent">
 				<span @click="searchContent = '' " class="clear" v-if="searchContent !== ''">x</span>
 			</div>
-			<button @click="$emit('switchSearch')" class="cancel">取消</button>
+			<span @click="$emit('switchSearch')" class="cancel">取消</span>
 		</div>
 		<!-- 搜索栏下方搜索结果 默认显示搜索历史记录，如果有输入则进行联想 -->
-		<div v-if="!isShowSearchResult">
-			<search-history
-							:search-history="searchHistory"
-							@delAllHistory="delAllHistory"
-							@delHistory="delHistory"
-							@historySearch="keywordsSearch"
-							v-if="searchContent === ''">
-			</search-history>
-			<search-think
-							:searchSuggest="searchSuggest"
-							@thinkSearch="keywordsSearch"
-							v-else>
-			</search-think>
-		</div>
-		<div v-else>
-
+		<div>
+			<div v-show="!isShowSearchResult">
+				<search-history
+								:search-history="searchHistory"
+								@delAllHistory="delAllHistory"
+								@delHistory="delHistory"
+								@historySearch="keywordsSearch"
+								v-show="searchContent === ''">
+				</search-history>
+				<search-think
+								:searchSuggest="searchSuggest"
+								@thinkSearch="keywordsSearch"
+								v-show="searchContent !== ''">
+				</search-think>
+			</div>
+			<search-result v-if="isShowSearchResult" :searchResult="searchResult"></search-result>
 		</div>
 	</div>
 </template>
@@ -39,6 +40,7 @@
 	import { getSuggest, doSearch } from '../../assets/js/apis/search'
 	import SearchHistory from "../../components/SearchHistory/SearchHistory";
 	import SearchThink from "../../components/SearchSuggest/SearchSuggest";
+	import SearchResult from "../../components/SearchResult/SearchResult";
 
 	export default {
 		// 使用自定义指令，使input 自动获取焦点
@@ -75,6 +77,12 @@
 			this.getSearchHistory();
 		},
 		methods: {
+			// 触摸搜索栏的时，隐藏搜索结果页面并重新匹配关键词
+			TapSearchBar () {
+				this.isShowSearchResult = false;
+				this.searchSuggest = [];
+				this.getSuggest();
+			},
 			// 获取搜索建议 使用定时器防抖
 			getSuggest () {
 				let that = this;
@@ -130,41 +138,54 @@
 			keywordsSearch (keywords) {
 				this.searchContent = keywords;
 				this.doSearch();
+				this.isShowSearchResult = true;
 			},
 			// 进行搜索
 			async doSearch () {
 				if (this.searchContent === '') {
+					this.searchContent = this.defaultSearchKeyWords;
 					let data = await doSearch({ keywords: this.defaultSearchKeyWords });
 					console.log(`默认搜索结果:`, data.result);
 					this.searchResult = data.result;
-					this.addHistory(this.defaultSearchKeyWords)
+					this.addHistory(this.defaultSearchKeyWords);
+					this.isShowSearchResult = true;
 				} else {
 					let data = await doSearch({ keywords: this.searchContent });
 					console.log(`指定搜索结果:`, data.result);
 					this.searchResult = data.result;
-					this.addHistory(this.searchContent)
+					this.addHistory(this.searchContent);
+					this.isShowSearchResult = true;
 				}
 			}
 		},
-		components: { SearchThink, SearchHistory },
+		components: { SearchResult, SearchThink, SearchHistory },
 	}
 </script>
 
 <style lang="scss" scoped>
+
 	.headerContainer {
 		background-color: #f6f6f6;
-		position: fixed;
+		position: relative;
 		width: 375px;
-		height: 100vh;
-		left: 0;
-		top: 0;
+		/*height: 100vh;*/
 
 		.searchBar {
+			position: fixed;
 			background-color: #D13334;
+			width: 375px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			height: 41px;
+			z-index: 99999;
+
+			&::after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+
 
 			.ipt {
 				background-color: #f6f6f6;
@@ -186,12 +207,10 @@
 				input {
 					float: left;
 					display: block;
-					/*vertical-align: middle;*/
-					/*display: inline-block;*/
+					background-color: transparent;
 					font-size: 16px;
 					border: none;
 					width: 90%;
-					/*height: 20px;*/
 					outline: none;
 
 					&::placeholder {
@@ -200,16 +219,15 @@
 
 				}
 
-				span {
-					position: fixed;
+				.clear {
+					position: relative;
 					text-align: center;
 					height: 15px;
 					width: 15px;
 					line-height: 12px;
 					font-size: 15px;
 					background-color: #C1C1C1;
-					top: 13px;
-					right: 58px;
+					margin-right: 8px;
 					color: #eeeeee;
 					border-radius: 10px;
 				}

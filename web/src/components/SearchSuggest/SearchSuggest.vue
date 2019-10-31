@@ -1,9 +1,9 @@
 <template>
-	<div>
+	<div class="searchContainer">
 		<mt-cell
 						:key="index"
-						:title="item.keyword !== item.lastKeyword ? item.keyword + item.lastKeyword : item.keyword"
-						@click.native="$emit('thinkSearch', item.keyword + item.lastKeyword)"
+						:title="item.keyword"
+						@click.native="$emit('thinkSearch', item.keyword)"
 						icon="sousuo"
 						slot="right" v-for="(item,index) in searchSuggest">
 		</mt-cell>
@@ -24,6 +24,9 @@
 	}
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+	.searchContainer {
+		padding-top: 41px;
+		padding-bottom: 55px;
+	}
 </style>
