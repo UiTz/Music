@@ -1,5 +1,7 @@
 <template>
+	<!-- 发现页面 -->
 	<div>
+		<!-- 头部搜索栏组件 -->
 		<nav-bar
 						:data="headerData"
 						@touchSearchBar="$emit('switchSearch',headerData.midContent)">

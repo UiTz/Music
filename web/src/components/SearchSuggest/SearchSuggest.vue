@@ -1,4 +1,5 @@
 <template>
+	<!-- 搜索联想组件 -->
 	<div class="searchContainer">
 		<mt-cell
 						:key="index"

@@ -1,8 +1,8 @@
 <template>
 	<!-- 搜索结果下方容器 -->
-	<mt-tab-container v-model="selected" class="body_container">
+	<mt-tab-container v-model="selected" class="body_container" swipeable>
 		<mt-tab-container-item id="1">
-			<single-search :searchResult="searchResult"></single-search>
+			<single-search :searchContent="searchContent"></single-search>
 		</mt-tab-container-item>
 		<mt-tab-container-item id="2">
 			歌手
@@ -23,8 +23,8 @@
 				type: String,
 				default: '1'
 			},
-			searchResult: {
-				type: Object
+			searchContent: {
+				type: String
 			}
 		},
 		name: "TabContainer",

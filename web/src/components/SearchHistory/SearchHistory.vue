@@ -1,4 +1,5 @@
 <template>
+	<!-- 搜索历史 -->
 	<div class="historyContainer">
 		<mt-cell
 						v-for="(item,index) in searchHistory"

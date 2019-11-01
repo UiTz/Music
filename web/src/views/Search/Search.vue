@@ -1,4 +1,5 @@
 <template>
+	<!-- 搜索页面 -->
 	<div class="headerContainer">
 		<div class="searchBar">
 			<div class="ipt">
@@ -31,7 +32,10 @@
 								v-show="searchContent !== ''">
 				</search-think>
 			</div>
-			<search-result v-if="isShowSearchResult" :searchResult="searchResult"></search-result>
+			<search-result
+							:searchContent="searchContent"
+							v-if="isShowSearchResult">
+			</search-result>
 		</div>
 	</div>
 </template>
@@ -67,7 +71,7 @@
 				// 搜索联想防抖
 				antiShake: null,
 				// 搜索结果
-				searchResult: {},
+				// searchResult: {},
 				searchSuggest: [],
 				isShowSearchResult: false,
 			}
@@ -137,22 +141,22 @@
 			// 使用选中的关键词搜索
 			keywordsSearch (keywords) {
 				this.searchContent = keywords;
-				this.doSearch();
+				// this.doSearch();
 				this.isShowSearchResult = true;
 			},
 			// 进行搜索
 			async doSearch () {
 				if (this.searchContent === '') {
 					this.searchContent = this.defaultSearchKeyWords;
-					let data = await doSearch({ keywords: this.defaultSearchKeyWords });
-					console.log(`默认搜索结果:`, data.result);
-					this.searchResult = data.result;
+					// let data = await doSearch({ keywords: this.defaultSearchKeyWords });
+					// console.log(`默认搜索结果:`, data.result);
+					// this.searchResult = data.result;
 					this.addHistory(this.defaultSearchKeyWords);
 					this.isShowSearchResult = true;
 				} else {
-					let data = await doSearch({ keywords: this.searchContent });
-					console.log(`指定搜索结果:`, data.result);
-					this.searchResult = data.result;
+					// let data = await doSearch({ keywords: this.searchContent });
+					// console.log(`指定搜索结果:`, data.result);
+					// this.searchResult = data.result;
 					this.addHistory(this.searchContent);
 					this.isShowSearchResult = true;
 				}

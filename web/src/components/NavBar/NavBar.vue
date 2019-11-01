@@ -1,14 +1,9 @@
 <template>
 	<div>
-		<!--<mt-header>-->
-		<!--	<mt-button icon="zhengzaibofang" slot="right" @click.native="headerclickleft()">-->
-		<!--	</mt-button>-->
-		<!--</mt-header>-->
 		<div class="headerContainer">
 			<img :src="data.leftIcon" alt="" class="leftIcon">
 			<div @click="$emit('touchSearchBar')" class="searchBar">
 				<img :src="data.mediumIcon" alt="" class="mediumIcon" v-if="data.mediumIcon">
-				<!--{{ data.title }}-->
 				<span class="title" v-text="data.midContent"></span>
 			</div>
 			<img :src="data.rightIcon" alt="" class="rightIcon">

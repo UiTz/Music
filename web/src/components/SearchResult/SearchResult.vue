@@ -1,7 +1,8 @@
 <template>
+	<!-- 搜索结果页面 -->
 	<div>
-		<nav-bar :_selected="selected" @switchPage="switchPage"></nav-bar>
-		<tab-container :_selected="selected" :searchResult="searchResult"></tab-container>
+		<nav-bar :searchContent="searchContent" :_selected="selected" @switchPage="switchPage"></nav-bar>
+		<tab-container :searchContent="searchContent" :_selected="selected"></tab-container>
 	</div>
 </template>
 
@@ -12,9 +13,12 @@
 	export default {
 		components: { TabContainer, NavBar },
 		props: {
-			searchResult: {
-				type: Object,
-			},
+			// searchResult: {
+			// 	type: Object,
+			// },
+			searchContent: {
+				type: String
+			}
 		},
 		name: "SearchResult",
 		data () {
