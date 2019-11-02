@@ -1,7 +1,7 @@
 <template>
 	<mt-tab-container v-model="selected">
 		<mt-tab-container-item id="find">
-			<find @switchSearch="switchSearch"></find>
+			<find @switchSearch="switchSearch" v-if="!isSearch"></find>
 			<search
 							class="search"
 							v-if="isSearch"
@@ -67,4 +67,5 @@
 	.mint-tab-container {
 		font-size: 24px;
 	}
+
 </style>

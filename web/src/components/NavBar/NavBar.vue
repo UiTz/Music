@@ -69,7 +69,7 @@
 			top: calc(6px + env(safe-area-inset-top));
 			background: #ffffff;
 			border-radius: 16px;
-			z-index: 9999;
+			z-index: 9;
 			color: #BFBEBF;
 
 			.title {

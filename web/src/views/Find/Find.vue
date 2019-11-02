@@ -1,17 +1,20 @@
 <template>
 	<!-- 发现页面 -->
-	<div>
+	<div class="findContainer">
 		<!-- 头部搜索栏组件 -->
 		<nav-bar
 						:data="headerData"
 						@touchSearchBar="$emit('switchSearch',headerData.midContent)">
 		</nav-bar>
+		<carousel class="carousel">
+		</carousel>
 	</div>
 </template>
 
 <script>
 	import NavBar from "../../components/NavBar/NavBar";
 	import { getHotSearch } from "../../assets/js/apis/find.js";
+	import Carousel from "../../components/Carousel/Carousel";
 
 
 	export default {
@@ -39,11 +42,19 @@
 			// },
 		},
 		components: {
+			Carousel,
 			NavBar
 		}
 	}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+	.findContainer {
 
+		.carousel {
+			margin-top: 41px;
+			/*height: 150px;*/
+		}
+
+	}
 </style>

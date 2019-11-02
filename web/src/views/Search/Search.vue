@@ -41,7 +41,7 @@
 </template>
 
 <script>
-	import { getSuggest, doSearch } from '../../assets/js/apis/search'
+	import { getSuggest } from '../../assets/js/apis/search'
 	import SearchHistory from "../../components/SearchHistory/SearchHistory";
 	import SearchThink from "../../components/SearchSuggest/SearchSuggest";
 	import SearchResult from "../../components/SearchResult/SearchResult";
@@ -182,7 +182,7 @@
 			align-items: center;
 			justify-content: center;
 			height: 41px;
-			z-index: 99999;
+			z-index: 1;
 
 			&::after {
 				content: '';

@@ -1,6 +1,7 @@
 <template>
 	<div class="container">
 		<tab-container @getActive="getActive" :active="active"></tab-container>
+		<!--<router-view></router-view>-->
 		<tab-bar @getActive="getActive" :active="active"></tab-bar>
 	</div>
 </template>
@@ -18,8 +19,7 @@
 			}
 		},
 		created () {
-			// let page = this.$route.params.page;
-			// if(page !== '') this.active = page;
+			if (this.$route.params.active) this.active = this.$route.params.active
 		},
 		methods: {
 			getActive (data) {

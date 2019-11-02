@@ -2,7 +2,7 @@
 	<!-- 搜索结果页面 -->
 	<div>
 		<nav-bar :searchContent="searchContent" :_selected="selected" @switchPage="switchPage"></nav-bar>
-		<tab-container :searchContent="searchContent" :_selected="selected"></tab-container>
+		<tab-container :searchContent="searchContent" :_selected="selected" @switchPage="switchPage"></tab-container>
 	</div>
 </template>
 

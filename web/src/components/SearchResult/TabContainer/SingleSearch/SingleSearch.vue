@@ -92,11 +92,6 @@
 </script>
 
 <style scoped lang="scss">
-	.cellContainer {
-		margin-top: 90px;
-		padding-bottom: 56px;
-	}
-
 	.singCell {
 		display: flex;
 		justify-content: space-between;
