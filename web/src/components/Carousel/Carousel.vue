@@ -1,6 +1,6 @@
 <template>
 	<!-- 轮播图组件 -->
-	<mt-swipe :auto="4000" class="carouselContainer">
+	<mt-swipe :auto="0" class="carouselContainer">
 		<mt-swipe-item class="carouselItem" v-for="(item,index) in carousel" :key="index">
 			<div class="carouselImgContainer">
 				<img class='carouselImg' :src="item.pic" alt="">
@@ -39,9 +39,18 @@
 </script>
 
 <style scoped lang="scss">
+
+	.mint-swipe-indicator {
+		opacity: 1;
+		background: #6D6D6E;
+	}
+
+	.mint-swipe-indicators .is-active {
+		background: #C62526;
+	}
+
 	.carouselContainer {
 		height: 150px;
-
 
 		.carouselItem {
 
@@ -65,7 +74,7 @@
 					font-size: 12px;
 					bottom: 33px;
 					right: 0;
-					padding: 0px 10px;
+					padding: 0 10px;
 					color: #F6EAE8;
 					line-height: 20px;
 					border-top-left-radius: 25px;
