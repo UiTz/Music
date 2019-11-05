@@ -36,6 +36,7 @@
 		/*height: 40px;*/
 		left: 0;
 		top: 0;
+		z-index: 1;
 
 
 		.leftIcon {
@@ -69,7 +70,7 @@
 			top: calc(6px + env(safe-area-inset-top));
 			background: #ffffff;
 			border-radius: 16px;
-			z-index: 9;
+			/*z-index: 9;*/
 			color: #BFBEBF;
 
 			.title {

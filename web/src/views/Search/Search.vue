@@ -1,47 +1,50 @@
 <template>
 	<!-- 搜索页面 -->
-	<div class="headerContainer">
-		<div class="searchBar">
-			<div class="ipt">
-				<img alt="" class="zoom" src="../../assets/img/zoom.png">
-				<input
-								:placeholder="defaultSearchKeyWords"
-								@input="getSuggest"
-								@keyup.enter="doSearch"
-								@click="TapSearchBar"
-								type="text"
-								v-focus
-								v-model="searchContent">
-				<span @click="searchContent = '' " class="clear" v-if="searchContent !== ''">x</span>
+	<keep-alive>
+		<div class="headerContainer">
+			<div class="searchBar">
+				<div class="ipt">
+					<img alt="" class="zoom" src="../../assets/img/zoom.png">
+					<input
+									:placeholder="defaultSearchKeyWords"
+									@input="getSuggest"
+									@keyup.enter="doSearch"
+									@click="TapSearchBar"
+									type="text"
+									v-focus
+									v-model="searchContent">
+					<span @click="searchContent = '' " class="clear" v-if="searchContent !== ''">x</span>
+				</div>
+				<span @click="$router.back()" class="cancel">取消</span>
 			</div>
-			<span @click="$emit('switchSearch')" class="cancel">取消</span>
-		</div>
-		<!-- 搜索栏下方搜索结果 默认显示搜索历史记录，如果有输入则进行联想 -->
-		<div>
-			<div v-show="!isShowSearchResult">
-				<search-history
-								:search-history="searchHistory"
-								@delAllHistory="delAllHistory"
-								@delHistory="delHistory"
-								@historySearch="keywordsSearch"
-								v-show="searchContent === ''">
-				</search-history>
-				<search-think
-								:searchSuggest="searchSuggest"
-								@thinkSearch="keywordsSearch"
-								v-show="searchContent !== ''">
-				</search-think>
+			<!-- 搜索栏下方搜索结果 默认显示搜索历史记录，如果有输入则进行联想 -->
+			<div>
+				<div v-show="!isShowSearchResult">
+					<search-history
+									:search-history="searchHistory"
+									@delAllHistory="delAllHistory"
+									@delHistory="delHistory"
+									@historySearch="keywordsSearch"
+									v-show="searchContent === ''">
+					</search-history>
+					<search-think
+									:searchSuggest="searchSuggest"
+									@thinkSearch="keywordsSearch"
+									v-show="searchContent !== ''">
+					</search-think>
+				</div>
+				<search-result
+								:searchContent="searchContent"
+								v-if="isShowSearchResult">
+				</search-result>
 			</div>
-			<search-result
-							:searchContent="searchContent"
-							v-if="isShowSearchResult">
-			</search-result>
 		</div>
-	</div>
+	</keep-alive>
+
 </template>
 
 <script>
-	import { getSuggest } from '../../assets/js/apis/search'
+	import { getSuggest, getHotSearch } from '../../assets/js/apis/search'
 	import SearchHistory from "../../components/SearchHistory/SearchHistory";
 	import SearchThink from "../../components/SearchSuggest/SearchSuggest";
 	import SearchResult from "../../components/SearchResult/SearchResult";
@@ -57,15 +60,16 @@
 			}
 		},
 		name: "search",
-		props: {
-			defaultSearchKeyWords: {
-				type: String,
-				default: ''
-			},
-		},
+		// props: {
+		// 	defaultSearchKeyWords: {
+		// 		type: String,
+		// 		default: ''
+		// 	},
+		// },
 		data () {
 			return {
 				active: 'find',
+				defaultSearchKeyWords: '',
 				searchContent: '',
 				searchHistory: [],
 				// 搜索联想防抖
@@ -76,9 +80,13 @@
 				isShowSearchResult: false,
 			}
 		},
-		created () {
+		async created () {
 			// 组件创建时获取本地历史记录
 			this.getSearchHistory();
+			// 获取热搜第一作为默认搜索
+			let res = await getHotSearch();
+			// console.log(res.data.data[0]);
+			this.defaultSearchKeyWords = res.data[0].searchWord;
 		},
 		methods: {
 			// 触摸搜索栏的时，隐藏搜索结果页面并重新匹配关键词

@@ -1,22 +1,22 @@
 <template>
 	<div>
-		<mt-tabbar v-model="selected" id="tabbbar" fixed>
-			<mt-tab-item id="find">
+		<mt-tabbar fixed id="tabbbar" v-model="selected">
+			<mt-tab-item @click.native="goTo" id="find">
 				<img alt="发现音乐" slot="icon" src="../../assets/img/home_seleted.png" v-if="selected === 'find'">
 				<img alt="发现音乐" slot="icon" src="../../assets/img/home.png" v-else>
 				<span class="bfont">发现音乐</span>
 			</mt-tab-item>
-			<mt-tab-item id="myMusic">
+			<mt-tab-item @click.native="goTo" id="mymusic">
 				<img alt="发现音乐" slot="icon" src="../../assets/img/myMusic_selected.png" v-if="selected === 'myMusic'">
 				<img alt="发现音乐" slot="icon" src="../../assets/img/myMusic.png" v-else>
 				<span class="bfont">我的音乐</span>
 			</mt-tab-item>
-			<mt-tab-item id="friend">
+			<mt-tab-item @click.native="goTo" id="friend">
 				<img alt="发现音乐" slot="icon" src="../../assets/img/friend_selected.png" v-if="selected === 'friend'">
 				<img alt="发现音乐" slot="icon" src="../../assets/img/friend.png" v-else>
 				<span class="bfont">朋友</span>
 			</mt-tab-item>
-			<mt-tab-item id="account">
+			<mt-tab-item @click.native="goTo" id="account">
 				<img alt="账号" slot="icon" src="../../assets/img/me_selected.png" v-if="selected === 'account'">
 				<img alt="账号" slot="icon" src="../../assets/img/me.png" v-else>
 				<span class="bfont">账号</span>
@@ -28,16 +28,27 @@
 
 <script>
 	export default {
-		props: {
-			active: {
-				type: String,
-				default: 'find'
-			},
-		},
+		// props: {
+		// 	active: {
+		// 		type: String,
+		// 		default: 'find'
+		// 	},
+		// },
 		name: "TabBar",
 		data () {
 			return {
-				selected: this.active
+				selected: 'find'
+			}
+		},
+		created () {
+			let path = this.$route.path;
+			path = path.slice(1);
+			console.log(path);
+			if ((path !== '') && path === ('find' || "mymusic" || "account" || "friend")) this.active = path;
+		},
+		methods: {
+			goTo () {
+				this.$router.push({ path: '/' + this.selected })
 			}
 		},
 		watch: {
@@ -53,6 +64,7 @@
 </script>
 
 <style scoped>
+
 	.mint-tabbar > .mint-tab-item.is-selected {
 		background: none;
 	}

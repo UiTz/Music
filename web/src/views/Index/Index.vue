@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
-		<tab-container @getActive="getActive" :active="active"></tab-container>
-		<!--<router-view></router-view>-->
+		<!--<tab-container @getActive="getActive" :active="active"></tab-container>-->
+		<router-view></router-view>
 		<tab-bar @getActive="getActive" :active="active"></tab-bar>
 	</div>
 </template>

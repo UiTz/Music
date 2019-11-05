@@ -3,6 +3,24 @@ import { baseURL } from "../config";
 import Axios from "axios";
 
 /**
+ * 热搜建议
+ * @returns {Promise<unknown>}
+ */
+function getHotSearch () {
+	return new Promise(
+			function (resolve, reject) {
+				Axios.get(baseURL + '/search/hot/detail')
+				     .then(result => {
+					     resolve(result.data)
+				     })
+				     .catch(error => {
+					     reject(error)
+				     })
+			}
+	);
+}
+
+/**
  * 调用此接口 , 传入搜索关键词可以搜索该音乐 / 专辑 / 歌手 / 歌单 / 用户
  * 必选参数 : keywords : 关键词
  * 可选参数 :
@@ -57,5 +75,6 @@ function getSuggest (keywords) {
 
 export {
 	getSuggest,
-	doSearch
+	doSearch,
+	getHotSearch
 }
